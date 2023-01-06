@@ -44,4 +44,42 @@ public class CircularDoublyLinkedList {
 
         return node;
     }
+
+    //Insert - Circular Doubly Linked List
+    public void insertNode(int nodeValue, int location) {
+        DoublyNode newNode = new DoublyNode();
+        newNode.setValue(nodeValue);
+        if (head == null) {
+            createCDLL(nodeValue);
+            return;
+        } else if (location == 0) {
+            newNode.setPrev(tail);
+            newNode.setNext(head);
+            head.setPrev(newNode);
+            tail.setNext(newNode);
+            head = newNode;
+        } else if (location >= size) {
+            newNode.setNext(head);
+            newNode.setPrev(tail);
+            head.setPrev(newNode);
+            tail.setNext(newNode);
+            tail = newNode;
+        } else {
+            DoublyNode currentNode = head;
+            int index = 0;
+            while (index < location - 1) {
+                currentNode = currentNode.getNext();
+                index++;
+            }
+            newNode.setPrev(currentNode);
+            newNode.setNext(currentNode.getNext());
+            currentNode.setNext(newNode);
+            newNode.getNext().setPrev(newNode);
+        }
+        size++;
+    }
 }
+
+
+
+
