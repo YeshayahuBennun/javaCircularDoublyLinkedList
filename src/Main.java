@@ -3,9 +3,9 @@ public class Main {
         CircularDoublyLinkedList cDLL = new CircularDoublyLinkedList();
         cDLL.createCDLL(1);
         cDLL.insertNode(2, 1);
+        cDLL.insertNode(3, 2);
+        cDLL.insertNode(4, 3);
 
-        System.out.println(cDLL.getHead().getNext().getValue());
-
-
+        cDLL.traversalCDLL();
     }
 }

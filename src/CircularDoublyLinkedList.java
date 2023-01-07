@@ -78,6 +78,23 @@ public class CircularDoublyLinkedList {
         }
         size++;
     }
+
+    //Traversal CDLL
+    public void traversalCDLL(){
+
+        if(head!=null){
+            DoublyNode currentNode = head;
+            for (int i = 0; i < size; i++) {
+                System.out.print(currentNode.getValue());
+                if(i!=size-1){
+                    System.out.print(" -> ");
+                }
+                currentNode =currentNode.getNext();
+            }
+        }else {
+            System.out.println("The CDLL does not exist.");
+        }
+    }
 }
 
 
