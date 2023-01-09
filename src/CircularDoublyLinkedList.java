@@ -80,20 +80,36 @@ public class CircularDoublyLinkedList {
     }
 
     //Traversal CDLL
-    public void traversalCDLL(){
-
-        if(head!=null){
+    public void traversalCDLL() {
+        if (head != null) {
             DoublyNode currentNode = head;
             for (int i = 0; i < size; i++) {
                 System.out.print(currentNode.getValue());
-                if(i!=size-1){
+                if (i != size - 1) {
                     System.out.print(" -> ");
                 }
-                currentNode =currentNode.getNext();
+                currentNode = currentNode.getNext();
             }
-        }else {
+            System.out.println("\n");
+        } else {
             System.out.println("The CDLL does not exist.");
         }
+    }
+
+    //Searching - Circular Doubly Linked List
+    public boolean searchingCDLL(int nodeValue) {
+        if (head != null) {
+            DoublyNode currentNode = head;
+            for (int i = 0; i < size; i++) {
+                if (currentNode.getValue() == nodeValue) {
+                    System.out.println("Found at position: " + i);
+                    return true;
+                }
+                currentNode = currentNode.getNext();
+            }
+        }
+        System.out.println("Node not found");
+        return false;
     }
 }
 

@@ -7,5 +7,6 @@ public class Main {
         cDLL.insertNode(4, 3);
 
         cDLL.traversalCDLL();
+        cDLL.searchingCDLL(4);
     }
 }
