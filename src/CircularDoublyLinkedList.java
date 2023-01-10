@@ -96,6 +96,23 @@ public class CircularDoublyLinkedList {
         }
     }
 
+    //Reverse Traversal - Circular Linked List
+    public void reverseTraversalCDLL(){
+        if(head!=null){
+            DoublyNode currentNode = tail;
+            for (int i = 0; i < size; i++) {
+                System.out.print(currentNode.getValue());
+                if (i != size - 1) {
+                    System.out.print(" -> ");
+                }
+                currentNode = currentNode.getPrev();
+            }
+            System.out.print("\n");
+        }else {
+            System.out.println("The CDLL does not exist.");
+        }
+    }
+
     //Searching - Circular Doubly Linked List
     public boolean searchingCDLL(int nodeValue) {
         if (head != null) {

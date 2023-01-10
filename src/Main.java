@@ -8,5 +8,6 @@ public class Main {
 
         cDLL.traversalCDLL();
         cDLL.searchingCDLL(4);
+        cDLL.reverseTraversalCDLL();
     }
 }
