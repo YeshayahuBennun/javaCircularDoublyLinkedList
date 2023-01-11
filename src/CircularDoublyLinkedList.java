@@ -97,8 +97,8 @@ public class CircularDoublyLinkedList {
     }
 
     //Reverse Traversal - Circular Linked List
-    public void reverseTraversalCDLL(){
-        if(head!=null){
+    public void reverseTraversalCDLL() {
+        if (head != null) {
             DoublyNode currentNode = tail;
             for (int i = 0; i < size; i++) {
                 System.out.print(currentNode.getValue());
@@ -108,7 +108,7 @@ public class CircularDoublyLinkedList {
                 currentNode = currentNode.getPrev();
             }
             System.out.print("\n");
-        }else {
+        } else {
             System.out.println("The CDLL does not exist.");
         }
     }
@@ -127,6 +127,56 @@ public class CircularDoublyLinkedList {
         }
         System.out.println("Node not found");
         return false;
+    }
+
+    //Deleting Circular Doubly Linked List
+    public void deleteCDLL(int location) {
+        if (head == null) {
+            System.out.println("CDLL does not exist");
+            return;
+            //Deleting the first node
+        } else if (location == 0) {
+            //Only one node
+            if (size == 1) {
+                head.setPrev(null);
+                head.setNext(null);
+                head = tail = null;
+                size--;
+                return;
+                //More than one node
+            } else {
+                head = head.getNext();
+                head.setPrev(tail);
+                tail.setNext(head);
+                size--;
+            }
+            //Deleting the last node
+        } else if (location >= size) {
+            //Only one node
+            if (size == 1) {
+                head.setPrev(null);
+                head.setNext(null);
+                head = tail = null;
+                size--;
+                return;
+                //More than one node
+            }else {
+                tail = tail.getPrev();
+                tail.setNext(head);
+                head.setPrev(tail);
+                size--;
+
+            }
+            //Deleting a node at any given location
+        }else {
+            DoublyNode currentNode = head;
+            for (int i = 0; i < location - 1; i++) {
+                currentNode = currentNode.getNext();
+            }
+            currentNode.setNext(currentNode.getNext().getNext());
+            currentNode.getNext().setPrev(currentNode);
+            size--;
+        }
     }
 }
 
