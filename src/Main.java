@@ -6,7 +6,7 @@ public class Main {
         cDLL.insertNode(3, 2);
         cDLL.insertNode(4, 5);
         cDLL.traversalCDLL();
-        cDLL.deleteCDLL(2);
-        cDLL.traversalCDLL();
+        cDLL.deleteEntireCDLL();
+
     }
 }
